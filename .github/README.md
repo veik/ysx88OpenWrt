@@ -58,6 +58,12 @@
 <img src="https://cdn.jsdelivr.net/gh/haiibo/OpenWrt/images/plus.png"/>
 </details>
 
+<details>
+<summary><b>&nbsp;X86、R2S、R4S 等软路由插件预览</b></summary>
+<br/>
+<img src="https://cdn.jsdelivr.net/gh/haiibo/OpenWrt/images/mini.png"/>
+</details>
+
 
 ## 定制固件 [![](https://img.shields.io/badge/-项目基本编译教程-FFFFFF.svg)](#定制固件-)
 1. 首先要登录 Gihub 账号，然后 Fork 此项目到你自己的 Github 仓库
