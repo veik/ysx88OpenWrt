@@ -39,9 +39,23 @@
 | 平台+设备名称 | 固件编译状态 | 配置文件 | 固件下载 |
 | :-------------: | :-------------: | :-------------: | :-------------: |
 | [![](https://img.shields.io/badge/OpenWrt-X86_64位-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-x86.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-x86.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-x86.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/x86.config) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/OpenWrt-x86) |
-| [![](https://img.shields.io/badge/OpenWrt-Phicomm_N1-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-N1.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-N1.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-N1.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/n1.config) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/Phicomm-N1) |
 | [![](https://img.shields.io/badge/OpenWrt-ARMv8_平台-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-ARMv8.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-ARMv8.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-ARMv8.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/n1.config) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/ARMv8) |
-| [![](https://img.shields.io/badge/OpenWrt-Rockchip_平台-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-R2S.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-R2S.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-R2S.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/r2s.config) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/NanoPi-R2S) |
+| [![](https://img.shields.io/badge/OpenWrt-ARMv8_Plus-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-ARMv8-PLUS.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-ARMv8.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-ARMv8-PLUS.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/n1.config) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/ARMv8) |
+| [![](https://img.shields.io/badge/OpenWrt-Rockchip_平台-32C955.svg?logo=openwrt)](https://github.com/ysx88/OpenWrt/blob/main/.github/workflows/Build-Rockchip.yml) | [![](https://github.com/ysx88/OpenWrt/actions/workflows/Build-Rockchip.yml/badge.svg)](https://github.com/ysx88/OpenWrt/actions/workflows/Build-Rockchip.yml) | [![](https://img.shields.io/badge/编译-配置-orange.svg?logo=apache-spark)](https://github.com/ysx88/OpenWrt/blob/main/configs/rockchip) | [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases/tag/NanoPi-R2S) |
+
+
+## 插件预览 [![](https://img.shields.io/badge/-固件插件及功能预览-FFFFFF.svg)](#插件预览-)
+<details>
+<summary><b>&nbsp;ARMv8 盒子 Mini 精简版本插件预览</b></summary>
+<br/>
+<img src="https://cdn.jsdelivr.net/gh/haiibo/OpenWrt/images/mini.png"/>
+</details>
+
+<details>
+<summary><b>&nbsp;ARMv8 盒子 Plus 多功能版插件预览</b></summary>
+<br/>
+<img src="https://cdn.jsdelivr.net/gh/haiibo/OpenWrt/images/plus.png"/>
+</details>
 
 
 ## 定制固件 [![](https://img.shields.io/badge/-项目基本编译教程-FFFFFF.svg)](#定制固件-)
