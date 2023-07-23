@@ -138,13 +138,13 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
         echo "release_date=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "这是个平台固件包，内含多个设备！
-              请注意选择你需要的设备固件！
-              
-              平台：Rockchip
-              设备：R2C R2S R4S R5C R5S R6S R66S R68S H66K H68K H69K
-              密码：password
-              地址：192.168.1.1" >> release.txt
+        echo "
+          * 这是个平台固件包，内含多个设备！
+          * 请注意选择你需要的设备固件！
+          * 平台：Rockchip
+          * 设备：R2C R2S R4S R5C R5S R6S R66S R68S H66K H68K H69K
+          * 密码：password
+          * 地址：192.168.1.1" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
         
     - name: Upload firmware to release
