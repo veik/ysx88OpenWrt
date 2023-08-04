@@ -4,9 +4,6 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.88.2/g' package/base-files/files/bin/config_generate
 
-# Set DISTRIB_REVISION
-sed -i "s/OpenWrt /TIAmo Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
 
@@ -23,10 +20,30 @@ cp -f $GITHUB_WORKSPACE/configs/bg1.jpg package/luci-theme-argon/htdocs/luci-sta
 # replace banner
 cp -f $GITHUB_WORKSPACE/configs/banner package/base-files/files/etc/banner
 
+# 调整 x86 型号只显示 CPU 型号
+sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}/g' package/lean/autocore/files/x86/autocore
+
+# 设置ttyd免帐号登录
+sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
+
+# 修改概览里时间显示为中文数字
+sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
+
+# 显示增加编译时间
+sed -i "s/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d %H:%M")/g" package/lean/autocore/files/x86/index.htm
+
+# 固件更新地址
+sed -i '/CPU usage/a\                <tr><td width="33%"><%:Compile update%></td><td><a target="_blank" href="https://github.com/ysx88/OpenWrt/releases">👆查看</a></td></tr>'  package/lean/autocore/files/x86/index.htm
+cat >>feeds/luci/modules/luci-base/po/zh-cn/base.po<<- EOF
+
+msgid "Compile update"
+msgstr "固件地址"
+EOF
+
 mkdir -p files/etc/openclash/core
 
 CLASH_DEV_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz"
-CLASH_TUN_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-amd64-2023.04.16-20-g212da6a.gz"
+CLASH_TUN_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-amd64-2023.06.30.gz"
 CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-amd64.tar.gz"
 GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
 GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
