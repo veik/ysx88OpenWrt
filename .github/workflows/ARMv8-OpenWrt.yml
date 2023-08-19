@@ -1,0 +1,112 @@
+name: ARMv8-OpenWrt
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      openwrt_version:
+        description: "Set the openwrt version"
+        required: false
+        default: "R23.7.7"
+  #schedule:
+    #- cron: '45 22 * * *'
+
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: armv8/feeds.conf.default
+  CONFIG_FILE: armv8/armv8.config
+  DIY_P1_SH: armv8/diy-part1.sh
+  DIY_P2_SH: armv8/diy-part2.sh
+  UPLOAD_FIRMWARE: false
+  UPLOAD_RELEASE: true
+  TZ: Asia/Shanghai
+  FILE_NAME: ARMv8
+  PRODUCT_NAME: ARMv8
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
+        sudo -E apt-get update
+        sudo -E apt-get -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+        sudo -E apt-get -y autoremove --purge
+        sudo -E apt-get clean
+        sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        Author=$(git show -s --date=short --format="Author: %an")
+        Date=$(git show -s --date=short --format="date: %ci")
+        Commit=$(git show -s --date=short --format="commit: %s")
+        Hash=$(git show -s --date=short --format="commit hash: %h")
+        echo "author=$Author" >> $GITHUB_ENV
+        echo "date=$Date" >> $GITHUB_ENV
+        echo "commit=$Commit" >> $GITHUB_ENV
+        echo "hash=$Hash" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
+        echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
+        echo "start=$(date +%s)" >> $GITHUB_ENV
+
+    - name: Package armvirt as openwrt
+      uses: ophub/flippy-openwrt-actions@main
+      if: (!cancelled())
+      env:
+        OPENWRT_ARMVIRT: https://github.com/ke10086/Actions-OpenWrt/releases/download/ARMv8-ROOTFS/openwrt-armvirt-64-generic-rootfs.tar.gz
+        PACKAGE_SOC: s905d
+        WHOAMI: TIAmo
+        OPENWRT_VER: ${{ github.event.inputs.openwrt_version }}
+        DISTRIB_REVISION: ${OPENWRT_VER} (By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d %H:%M"))
+        KERNEL_REPO_URL: https://github.com/ysx88/kernel/releases/tag/kernel_stable
+        KERNEL_VERSION_NAME: 5.15.100
+        KERNEL_AUTO_LATEST: true
+        GZIP_IMGS: .gz
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    - name: Upload artifact to Actions
+      uses: kittaakos/upload-artifact-as-is@master
+      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true'
+      with:
+        path: ${{ env.PACKAGED_OUTPUTPATH }}/
+
+    - name: Upload openwrt to release
+      uses: ncipollo/release-action@v1
+      if: env.PACKAGED_STATUS == 'success'
+      with:
+        name: ${{ env.DATE }} 「 ${{ env.PRODUCT_NAME }} 」固件
+        allowUpdates: true
+        removeArtifacts: true
+        tag: ${{ env.PRODUCT_NAME }}
+        token: ${{ secrets.GH_TOKEN }}
+        body: |
+          - 🔴默认 IP：192.168.71.4 默认密码：password
+          - 🔴WiFi默认密码：password
+          - 🔥此为 ARMv8-Docker 固件，集成一些日常常用插件
+          - 安装到 EMMC：系统 → 晶晨宝盒 → 安装 OpenWrt → 选择型号 → 安装
+          - 升级 OpenWrt：系统 → 晶晨宝盒 → 手动上传更新 或者 在线下载更新
+          - 常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
+          - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          - ★ 感谢源码作者无私分享！
+          - 🎈🎈🎈 更新信息 🎈🎈🎈
+          - 作者: ${{ env.author }}
+          - 时间: ${{ env.date }}
+          - 内容: ${{ env.commit }}
+          - hash: ${{ env.hash }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
