@@ -1,4 +1,4 @@
-name: armv8-config
+name: 生成armv8-config
 
 on:
   repository_dispatch:
