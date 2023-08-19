@@ -267,6 +267,7 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔴此为 ARMv8 底包，非完整固件，不可直刷
+        artifacts: ${{ env.FIRMWARE }}/*
 # /////////////////////////////////////////////////////////////////////////////////////////////////////////
   Build_ARMv8_OpenWrt:
     needs: [Build_ARMv8-ROOTFS]
@@ -343,3 +344,4 @@ jobs:
           - 🔴默认 IP：192.168.71.4 默认密码：password
           - 🔴WiFi默认密码：password
           - 🔥此为 ARMv8 固件，集成一些日常常用插件
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
