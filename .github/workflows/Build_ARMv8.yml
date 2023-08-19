@@ -267,7 +267,7 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔴此为 ARMv8 底包，非完整固件，不可直刷
-        files: ${{ env.FIRMWARE }}/*
+        artifacts: ${{ env.FIRMWARE }}/*
 # /////////////////////////////////////////////////////////////////////////////////////////////////////////
   Build_ARMv8_OpenWrt:
     needs: [Build_ARMv8-ROOTFS]
