@@ -8,8 +8,8 @@ on:
         description: "Set the openwrt version"
         required: false
         default: "R23.7.7"
-  #schedule:
-   # - cron: 15 16 * * *
+  schedule:
+    - cron: 15 20 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -267,14 +267,6 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔴此为 ARMv8 底包，非完整固件，不可直刷
-          - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          - ★ 感谢源码作者无私分享！
-          - 🎈🎈🎈 更新信息 🎈🎈🎈
-          - 作者: ${{ env.author }}
-          - 时间: ${{ env.date }}
-          - 内容: ${{ env.commit }}
-          - hash: ${{ env.hash }}
-        artifacts: ${{ env.FIRMWARE }}/*
 # /////////////////////////////////////////////////////////////////////////////////////////////////////////
   Build_ARMv8_OpenWrt:
     needs: [Build_ARMv8-ROOTFS]
@@ -351,35 +343,3 @@ jobs:
           - 🔴默认 IP：192.168.71.4 默认密码：password
           - 🔴WiFi默认密码：password
           - 🔥此为 ARMv8 固件，集成一些日常常用插件
-          - 安装到 EMMC：系统 → 晶晨宝盒 → 安装 OpenWrt → 选择型号 → 安装
-          - 升级 OpenWrt：系统 → 晶晨宝盒 → 手动上传更新 或者 在线下载更新
-          - 常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
-          - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          - ★ 感谢源码作者无私分享！
-          - 🎈🎈🎈 更新信息 🎈🎈🎈
-          - 作者: ${{ env.author }}
-          - 时间: ${{ env.date }}
-          - 内容: ${{ env.commit }}
-          - hash: ${{ env.hash }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-# //////////////////////////////////////////////////////////////////////////////////////////////
-  Cleaning:
-    if: ${{ always() }}
-    needs: [Checka,Build_ARMv8-ROOTFS,Build_ARMv8_OpenWrt]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Delete workflow runs
-      uses: Jejz168/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 1
-
-    - name: Remove old Releases
-      uses: Jejz168/delete-older-releases@master
-      if: env.UPLOAD_RELEASE == 'true' 
-      with:
-        keep_latest: 36
-        delete_tags: true
-        delete_tag_pattern: _
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
