@@ -321,13 +321,13 @@ jobs:
       uses: ophub/flippy-openwrt-actions@main
       if: (!cancelled())
       env:
-        OPENWRT_ARMVIRT: https://github.com/ke10086/Actions-OpenWrt/releases/download/ARMv8-ROOTFS/openwrt-armvirt-64-generic-rootfs.tar.gz
-        PACKAGE_SOC: s905d
+        OPENWRT_ARMVIRT: https://github.com/ysx88/OpenWrt/releases/download/ARMv8-ROOTFS/openwrt-armvirt-64-generic-rootfs.tar.gz
+        PACKAGE_SOC: all
         WHOAMI: TIAmo
         OPENWRT_VER: ${{ github.event.inputs.openwrt_version }}
         DISTRIB_REVISION: ${OPENWRT_VER} (By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d %H:%M"))
         KERNEL_REPO_URL: https://github.com/ysx88/kernel/releases/tag/kernel_stable
-        KERNEL_VERSION_NAME: 5.15.100
+        KERNEL_VERSION_NAME: 5.15.100_6.1.8
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -350,7 +350,7 @@ jobs:
         body: |
           - 🔴默认 IP：192.168.71.4 默认密码：password
           - 🔴WiFi默认密码：password
-          - 🔥此为 ARMv8-Docker 固件，集成一些日常常用插件
+          - 🔥此为 ARMv8 固件，集成一些日常常用插件
           - 安装到 EMMC：系统 → 晶晨宝盒 → 安装 OpenWrt → 选择型号 → 安装
           - 升级 OpenWrt：系统 → 晶晨宝盒 → 手动上传更新 或者 在线下载更新
           - 常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
