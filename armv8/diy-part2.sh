@@ -21,10 +21,10 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git packag
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/configs/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # replace banner
-cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
+cp -f $GITHUB_WORKSPACE/configs/banner package/base-files/files/etc/banner
 
 # alist
 rm -rf feeds/packages/lang/golang
@@ -43,7 +43,7 @@ sed -i "s/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>/<%=pcdata(ver.d
 sed -i "s|\ <%=luci.sys.exec(\"cat \/etc\/bench.log\") or \" \"%>||g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # 固件更新地址
-sed -i '/CPU usage/a\                <tr><td width="33%"><%:Compile update%></td><td><a target="_blank" href="https://github.com/ke10086/OpenWrt/releases">👆查看</a></td></tr>'  package/lean/autocore/files/arm/index.htm
+sed -i '/CPU usage/a\                <tr><td width="33%"><%:Compile update%></td><td><a target="_blank" href="https://github.com/ysx88/OpenWrt/releases">👆查看</a></td></tr>'  package/lean/autocore/files/arm/index.htm
 cat >>feeds/luci/modules/luci-base/po/zh-cn/base.po<<- EOF
 
 msgid "Compile update"
