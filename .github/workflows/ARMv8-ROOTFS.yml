@@ -1,4 +1,4 @@
-name: ARMv8-ROOTFS
+name: 编译ARMv8底包
 
 on:
   repository_dispatch:
