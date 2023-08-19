@@ -1,4 +1,4 @@
-name: ARMv8-OpenWrt
+name: 打包ARMv8固件
 
 on:
   repository_dispatch:
