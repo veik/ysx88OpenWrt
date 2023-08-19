@@ -220,3 +220,4 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔴此为 ARMv8 底包，非完整固件，不可直刷
+        artifacts: ${{ env.FIRMWARE }}/*
