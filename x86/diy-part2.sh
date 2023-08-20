@@ -23,10 +23,10 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git packag
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/configs/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # replace banner
-cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
+cp -f $GITHUB_WORKSPACE/configs/banner package/base-files/files/etc/banner
 
 # alist
 rm -rf feeds/packages/lang/golang
