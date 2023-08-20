@@ -34,6 +34,7 @@ jobs:
         [ -n "$AGENT_TOOLSDIRECTORY" ] && sudo rm -rf "$AGENT_TOOLSDIRECTORY"
         sudo -E apt-get update -y
         sudo -E apt-get install -y $(curl -fsSL https://raw.githubusercontent.com/ysx88/ysx88/main/assets/depends)
+        pip install aligo
         sudo -E apt-get clean
         git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
         df -h
