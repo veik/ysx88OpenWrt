@@ -139,7 +139,7 @@ jobs:
         artifacts: ARM_Out/*.img.gz
         name: ${{ steps.generate_name.outputs.release_name }}
         tag: ${{ steps.generate_name.outputs.release_tag }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
         
 #    - name: Upload Aliyun
 #      run: | 
