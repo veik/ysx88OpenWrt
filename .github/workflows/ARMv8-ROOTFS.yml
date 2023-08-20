@@ -213,7 +213,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} 🚫「 ${{ env.FILE_NAME }} 」
+        name: ${{ env.DATE }} 🚫 ${{ env.FILE_NAME }}
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
