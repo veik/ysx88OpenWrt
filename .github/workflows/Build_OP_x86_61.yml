@@ -128,7 +128,7 @@ jobs:
       run: |
         PRODUCT_NAME="X86_64-全能版"
         release_tag="$PRODUCT_NAME"
-        release_name="X86_64-OpenWrt-6.1-全能版"
+        release_name="$(date "+%Y-%m-%d %H:%M:%S") X86_64-6.1-全能版"
         echo "release_name=$release_name" >> $GITHUB_OUTPUT
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT       
 
