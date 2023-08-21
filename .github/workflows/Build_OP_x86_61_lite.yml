@@ -132,6 +132,7 @@ jobs:
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT   
 
     - name: Create Release & Upload
+      id: release
       uses: ncipollo/release-action@v1
       with:
         artifacts: X86_Out/*.img.gz 
