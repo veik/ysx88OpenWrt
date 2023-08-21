@@ -279,7 +279,7 @@ jobs:
         tag: ${{ env.FILE_NAME }} 四内核
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - ⭐️此为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
+          - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
           - 🔴默认IP：192.168.1.1
           - 🔴默认密码：无密码
         artifacts: ${{ env.FIRMWARE }}/*
@@ -500,7 +500,7 @@ jobs:
         tag: ${{ env.FILE_NAME }} 四内核
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - ⭐️此为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
+          - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
           - 🔴默认IP：192.168.1.1
           - 🔴默认密码：无密码
         artifacts: ${{ env.FIRMWARE }}/*
@@ -721,7 +721,7 @@ jobs:
         tag: ${{ env.FILE_NAME }} 四内核
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - ⭐️此为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
+          - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
           - 🔴默认IP：192.168.1.1
           - 🔴默认密码：无密码
         artifacts: ${{ env.FIRMWARE }}/*
@@ -942,7 +942,7 @@ jobs:
         tag: ${{ env.FILE_NAME }} 四内核
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - ⭐️此为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
+          - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
           - 🔴默认IP：192.168.1.1
           - 🔴默认密码：无密码
         artifacts: ${{ env.FIRMWARE }}/*
