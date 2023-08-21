@@ -127,6 +127,7 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
+        time=$(date +%Y%m%d%H%M%S)
         PRODUCT_NAME="R2S"
         release_tag="$PRODUCT_NAME"
         release_name="$(date "+%Y-%m-%d %H:%M:%S") R2S-6.1-固件"
@@ -134,7 +135,6 @@ jobs:
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT       
 
     - name: Create Release & Upload
-      id: release
       uses: ncipollo/release-action@v1
       with:
         artifacts: ARM_Out/*.img.gz
