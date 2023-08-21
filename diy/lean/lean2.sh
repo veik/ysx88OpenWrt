@@ -18,7 +18,7 @@ echo -e "msgstr \"日志\"" >> package/feeds/luci/luci-app-dnsforwarder/po/zh-cn
 
               
 ##配置ip等
-sed -i 's/192.168.1.1/192.168.71.4/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.71.4/g' package/base-files/files/bin/config_generate
 
 ##清除默认密码password
 #sed -i '/V4UetPzk$CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
