@@ -939,7 +939,6 @@ jobs:
       with:
         name: ${{ env.FILE_NAME }} ❤️ ${{ env.DATE }}
         allowUpdates: true
-        removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
