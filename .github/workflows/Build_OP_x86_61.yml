@@ -126,6 +126,7 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
+        time=$(date +%Y%m%d%H%M%S)
         PRODUCT_NAME="X86_64-全能版"
         release_tag="$PRODUCT_NAME"
         release_name="$(date "+%Y-%m-%d %H:%M:%S") X86_64-6.1-全能版"
@@ -133,7 +134,6 @@ jobs:
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT       
 
     - name: Create Release & Upload
-      id: release
       uses: ncipollo/release-action@v1
       with:
         artifacts: X86_Out/*.img.gz 
