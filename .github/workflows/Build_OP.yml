@@ -1,4 +1,4 @@
-name: Build_r2s_61
+name: Build_OP
 
 on: 
   repository_dispatch:
