@@ -126,7 +126,6 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
-        time=$(date +%Y%m%d%H%M%S)
         PRODUCT_NAME="X86_64-全能版"
         release_tag="$PRODUCT_NAME"
         release_name="$(date "+%Y-%m-%d %H:%M:%S") X86_64-6.1-全能版"
@@ -138,5 +137,6 @@ jobs:
       with:
         artifacts: X86_Out/*.img.gz 
         name: ${{ steps.generate_name.outputs.release_name }}
+        allowUpdates: true
         tag: ${{ steps.generate_name.outputs.release_tag }}
         token: ${{ secrets.GH_TOKEN }}
