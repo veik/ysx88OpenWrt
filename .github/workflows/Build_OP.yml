@@ -18,32 +18,40 @@ jobs:
     env:
       REPO_URL_Lede: https://github.com/coolsnowwolf/lede
       REPO_BRANCH_Lede: master
-
+      REPO_PATH_Lede : "Lede_x86"
+    outputs:
+      output: ${{ steps.outputunifreq.outputs.unifreq }}
     steps:
     - name: Get Commit Hash
       id: getHash
       run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
-        echo "::set-output name=commitHash::$(git rev-parse HEAD)"
+        git clone --depth 1 $REPO_URL_Lede -b $REPO_BRANCH_Lede $REPO_PATH_Lede
+        cd $REPO_PATH_Lede
+        echo "commitHash_x86=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        cd
+
+    - name: Show Commit Head and Combination Heads
+      id: combHeader
+      run: |
+        echo "commitHash_x86: ${{ steps.getHash.outputs.commitHash_x86 }}"
 
     - name: Compare Commit Hash
       id: cacheHash
-      uses: actions/cache@v2
+      uses: actions/cache@main
       with:
-        path: .commitHash
-        key: HEAD-${{ steps.getHash.outputs.commitHash }}
+        path: .commitHash_x86
+        key: HEAD-${{ steps.getHash.outputs.commitHash_x86 }}
+
+    - name: Set output for next job
+      id: outputunifreq
+      if: steps.cacheHash.outputs.cache-hit == 'true'
+      run: |
+        echo "unifreq=hello" >> $GITHUB_OUTPUT
 
     - name: Save New Commit Hash
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
-        echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
-
-    - name: Trigger build
-      if: steps.cacheHash.outputs.cache-hit != 'true'
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        event-type: Source Code Update
+        echo ${{ steps.getHash.outputs.commitHash_x86 }} | tee .commitHash_x86
 
   Build_r2s_61:
     needs: [Checka]
