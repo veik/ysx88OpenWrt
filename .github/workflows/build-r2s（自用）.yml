@@ -210,10 +210,10 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 自用
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ env.FILE_NAME }} 自用
+        token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此为 ${{ env.FILE_NAME }} 固件
           - 🔴默认IP：192.168.71.2
