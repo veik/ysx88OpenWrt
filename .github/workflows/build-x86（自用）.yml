@@ -1,4 +1,4 @@
-name: Build X86
+name: Build X86（自用）
 
 on:
   repository_dispatch:
