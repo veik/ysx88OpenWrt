@@ -20,7 +20,6 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: x86_64-自用
-  PRODUCT_NAME: x86_64-自用
 
 jobs:
   build-x86:
