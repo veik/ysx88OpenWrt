@@ -23,8 +23,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Phicomm-N1
-  PRODUCT_NAME: Phicomm-N1
+  FILE_NAME: Phicomm-N1-自用
+  PRODUCT_NAME: Phicomm-N1-自用
 
 jobs:
   build:
@@ -209,13 +209,13 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success'
       with:
-        name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }} 自用固件
+        name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }}固件
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.PRODUCT_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - 🔥此为 ${{ env.PRODUCT_NAME }} 自用固件
+          - 🔥此为 ${{ env.PRODUCT_NAME }}固件
           - 🔴默认 IP：192.168.71.4 默认密码：password
           - 🔴WiFi默认密码：password
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
