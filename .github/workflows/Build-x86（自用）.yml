@@ -215,7 +215,7 @@ jobs:
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 自用固件
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }} 自用固件
+        tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此为 ${{ env.FILE_NAME }} 自用固件
