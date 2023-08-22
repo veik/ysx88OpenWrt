@@ -207,7 +207,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success'
       with:
-        name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }} 固件
+        name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }} 自用固件
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.PRODUCT_NAME }}
