@@ -19,7 +19,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: nanopi-r2s
+  FILE_NAME: nanopi-r2s自用
 
 jobs:
   build-r2s:
@@ -212,12 +212,12 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 自用固件
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}固件
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          - ⭐️此为 ${{ env.FILE_NAME }} 自用固件
+          - ⭐️此为 ${{ env.FILE_NAME }}固件
           - 🔴默认IP：192.168.71.2
           - 🔴默认密码：无密码
         artifacts: ${{ env.FIRMWARE }}/*
