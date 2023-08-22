@@ -127,9 +127,9 @@ jobs:
     - name: Generate Tag & Release Name
       id: generate_name
       run: |
-        PRODUCT_NAME="R2S"
+        PRODUCT_NAME="R2S-精简版"
         release_tag="$PRODUCT_NAME"
-        release_name="$(date "+%Y-%m-%d %H:%M:%S") R2S-6.1-固件"
+        release_name="$(date "+%Y-%m-%d %H:%M:%S") R2S-6.1-精简版"
         echo "release_name=$release_name" >> $GITHUB_OUTPUT
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT       
 
