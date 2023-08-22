@@ -274,9 +274,9 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 四内核
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }} 四内核
+        tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
@@ -495,9 +495,9 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 四内核
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }} 四内核
+        tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
@@ -716,9 +716,9 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 四内核
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }} 四内核
+        tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
@@ -937,9 +937,9 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }} 四内核
+        name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
-        tag: ${{ env.FILE_NAME }} 四内核
+        tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - ⭐️此版本为 ${{ env.FILE_NAME }} 四内核固件，选择相应内核固件下载
