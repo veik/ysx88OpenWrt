@@ -1,4 +1,4 @@
-name: Build_x86_61_lite
+name: 编译 x86_61_lite
 
 on: 
   repository_dispatch:
