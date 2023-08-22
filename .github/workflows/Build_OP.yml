@@ -1,4 +1,4 @@
-name: 编译 OP-61
+name: 编译 R2S-x86-61
 
 on: 
   repository_dispatch:
