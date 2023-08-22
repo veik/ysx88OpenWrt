@@ -211,7 +211,6 @@ jobs:
       with:
         name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }} 自用固件
         allowUpdates: true
-        removeArtifacts: true
         tag: ${{ env.PRODUCT_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
@@ -219,18 +218,3 @@ jobs:
           - 🔴默认 IP：192.168.71.4 默认密码：password
           - 🔴WiFi默认密码：password
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
