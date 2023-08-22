@@ -8,6 +8,8 @@ on:
         description: "Set the openwrt version"
         required: false
         default: "R23.7.7"
+  schedule:
+    - cron: 15 16 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
