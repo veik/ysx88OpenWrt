@@ -1,4 +1,4 @@
-name: Build_r2s_61
+name: 编译 r2s_61
 
 on: 
   repository_dispatch:
