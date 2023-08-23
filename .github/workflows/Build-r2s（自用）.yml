@@ -19,7 +19,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: nanopi-r2s-自用
+  FILE_NAME: NanoPi R2S-自用
 
 jobs:
   build-r2s:
