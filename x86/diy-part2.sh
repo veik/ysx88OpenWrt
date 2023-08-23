@@ -36,7 +36,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/l
 sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
 
 # 显示增加编译时间
-sed -i "s/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d %H:%M")/g" package/lean/autocore/files/x86/index.htm
+sed -i "s/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d")/g" package/lean/autocore/files/x86/index.htm
 
 # 固件更新地址
 sed -i '/CPU usage/a\                <tr><td width="33%"><%:Compile update%></td><td><a target="_blank" href="https://github.com/ysx88/OpenWrt/releases">👆查看</a></td></tr>'  package/lean/autocore/files/x86/index.htm
