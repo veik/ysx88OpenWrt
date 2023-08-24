@@ -97,6 +97,6 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔥此为 ARMv8 固件，集成一些日常常用插件
-          - 🔴默认 IP：192.168.1.1 默认密码：password
-          - 🔴WiFi默认密码：password
+          - 🔴默认 IP：192.168.1.1
+          - 🔴默认密码：password
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
