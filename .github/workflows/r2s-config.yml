@@ -1,4 +1,4 @@
-name: 生成R2S-config
+name: 生成r2s-config
 
 on:
   repository_dispatch:
@@ -18,7 +18,7 @@ env:
   DIY_P2_SH: r2s/diy-part2.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
-  CONFIG: R2S
+  CONFIG: r2s
   TZ: Asia/Shanghai
   
 jobs:
