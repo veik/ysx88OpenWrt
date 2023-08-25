@@ -215,6 +215,7 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           - 🔥此为 ${{ env.PRODUCT_NAME }} 自用固件
-          - 🔴默认 IP：192.168.1.4 默认密码：password
+          - 🔴默认 IP：192.168.1.4
+          - 🔴默认密码：password
           - 🔴WiFi默认密码：password
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
