@@ -3,11 +3,7 @@ name: 编译ARMv8固件
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      openwrt_version:
-        description: "Set the openwrt version"
-        required: false
-        default: "R23.7.7"
+
   schedule:
     - cron: 15 16 * * *
 
