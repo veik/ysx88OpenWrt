@@ -33,23 +33,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/l
 #设置ttyd免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
-# 修改概览里时间显示为中文数字
-sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/arm/index.htm
-
-# 显示增加编译时间
-sed -i "s/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>/<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> By @TIAmo build $(TZ=UTC-8 date "+%Y-%m-%d")/g" package/lean/autocore/files/arm/index.htm
-
-# 去除型号右侧肿瘤式跑分信息
-sed -i "s|\ <%=luci.sys.exec(\"cat \/etc\/bench.log\") or \" \"%>||g" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-
-# 固件更新地址
-sed -i '/CPU usage/a\                <tr><td width="33%"><%:Compile update%></td><td><a target="_blank" href="https://github.com/ysx88/OpenWrt/releases">👆查看</a></td></tr>'  package/lean/autocore/files/arm/index.htm
-cat >>feeds/luci/modules/luci-base/po/zh-cn/base.po<<- EOF
-
-msgid "Compile update"
-msgstr "固件地址"
-EOF
-
 mkdir -p files/etc/openclash/core
 
 CLASH_DEV_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz"
