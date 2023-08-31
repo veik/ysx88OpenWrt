@@ -30,7 +30,6 @@
 7. 集成在线用户插件，可查看所有在线用户 IP 地址与实时速率等
 8. ARMv8、Phicomm-N1固件内置晶晨宝盒，支持在线更新固件及内核等
 
-
 ## 固件下载 [![](https://img.shields.io/badge/-编译状态及下载链接-FFFFFF.svg)](#固件下载-)
 点击下表中 [![](https://img.shields.io/badge/下载-链接-blueviolet.svg?style=flat&logo=hack-the-box)](https://github.com/ysx88/OpenWrt/releases) 即可跳转到该设备固件下载页面
 | 平台+设备名称 | 固件编译状态 | 配置文件 | 固件下载 |
