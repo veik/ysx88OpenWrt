@@ -13,6 +13,9 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git packag
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
+##更改主机名
+sed -i "s/hostname='.*'/hostname='NanoPi-R2S'/g" package/base-files/files/bin/config_generate
+
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/diy/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
