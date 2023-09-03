@@ -107,7 +107,7 @@ jobs:
         touch release.txt
         echo "- 这是个平台固件包，内含多个设备！
               - 请注意选择你需要的设备固件！
-              - 默认管理地址：`192.168.1.2`
+              - 默认管理地址：`192.168.1.1`
               - 默认密码：`password`" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
@@ -115,25 +115,10 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
         tag_name: ${{ env.FILE_NAME }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
-
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@v2
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.1
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
