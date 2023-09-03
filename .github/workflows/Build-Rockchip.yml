@@ -1,4 +1,4 @@
-name: Build OpenWrt
+name: Build Rockchip
 
 on:
   repository_dispatch:
@@ -11,7 +11,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: Rockchip/feeds.conf.default
-  CONFIG_FILE: Rockchip/Rockchip.config
+  CONFIG_FILE: Rockchip/rockchip.config
   DIY_P1_SH: Rockchip/diy-part1.sh
   DIY_P2_SH: Rockchip/diy-part2.sh
   UPLOAD_RELEASE: true
@@ -95,7 +95,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        rm -rf packages
+        rm -rf packages config.buildinfo feeds.buildinfo openwrt-rockchip-armv8.manifest profiles.json sha256sums version.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
