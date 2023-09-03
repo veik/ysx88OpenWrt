@@ -165,7 +165,7 @@ jobs:
           replacesArtifacts: true
           token: ${{ secrets.GH_TOKEN }}
           body: |
-            Flippy 系列固件打包专用内核，支持 Amlogic Allwinner Rockchip 平台。
+            - Flippy 系列固件打包专用内核，支持 Amlogic Allwinner Rockchip 平台。
             
       - name: Telegram notification
         run: |
