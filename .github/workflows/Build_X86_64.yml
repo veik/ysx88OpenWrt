@@ -260,6 +260,8 @@ jobs:
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
+        removeArtifacts: true
+        replacesArtifacts: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
@@ -481,6 +483,8 @@ jobs:
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
+        removeArtifacts: true
+        replacesArtifacts: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
@@ -702,6 +706,8 @@ jobs:
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
+        removeArtifacts: true
+        replacesArtifacts: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
@@ -923,6 +929,8 @@ jobs:
       with:
         name: ${{ env.DATE }} ❤️ ${{ env.FILE_NAME }}
         allowUpdates: true
+        removeArtifacts: true
+        replacesArtifacts: true
         tag: ${{ env.FILE_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
