@@ -207,6 +207,8 @@ jobs:
       with:
         name: ${{ env.DATE }} 🚫 ${{ env.PRODUCT_NAME }} 自用固件
         allowUpdates: true
+        removeArtifacts: true
+        replacesArtifacts: true
         tag: ${{ env.PRODUCT_NAME }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
