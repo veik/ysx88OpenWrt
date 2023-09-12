@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: 51 15 * * *
+    - cron: 0 15 * * *
 
 jobs:
   del_runs:
