@@ -111,7 +111,7 @@ jobs:
         echo "date=$Date" >> $GITHUB_ENV
         echo "commit=$Commit" >> $GITHUB_ENV
         echo "hash=$Hash" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%日 %H:%M:%S")" >> $GITHUB_ENV
         echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
         echo "start=$(date +%s)" >> $GITHUB_ENV
 
@@ -140,13 +140,6 @@ jobs:
         sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.4/g' target/linux/x86/Makefile
         
         sed -i 's/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.4/g' target/linux/x86/Makefile
-
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh54 == 'true' && github.event.inputs.ssh54  != 'false') || contains(github.event.action, 'ssh54')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Output compilation information
       run: |
@@ -332,7 +325,7 @@ jobs:
         echo "date=$Date" >> $GITHUB_ENV
         echo "commit=$Commit" >> $GITHUB_ENV
         echo "hash=$Hash" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%日 %H:%M:%S")" >> $GITHUB_ENV
         echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
         echo "start=$(date +%s)" >> $GITHUB_ENV
 
@@ -361,13 +354,6 @@ jobs:
         sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.10/g' target/linux/x86/Makefile
         
         sed -i 's/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.10/g' target/linux/x86/Makefile
-
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh510 == 'true' && github.event.inputs.ssh510  != 'false') || contains(github.event.action, 'ssh510')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Output compilation information
       run: |
@@ -553,7 +539,7 @@ jobs:
         echo "date=$Date" >> $GITHUB_ENV
         echo "commit=$Commit" >> $GITHUB_ENV
         echo "hash=$Hash" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%日 %H:%M:%S")" >> $GITHUB_ENV
         echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
         echo "start=$(date +%s)" >> $GITHUB_ENV
 
@@ -582,13 +568,6 @@ jobs:
         sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 
         sed -i 's/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/x86/Makefile
-
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh515 == 'true' && github.event.inputs.ssh515  != 'false') || contains(github.event.action, 'ssh515')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Output compilation information
       run: |
@@ -774,7 +753,7 @@ jobs:
         echo "date=$Date" >> $GITHUB_ENV
         echo "commit=$Commit" >> $GITHUB_ENV
         echo "hash=$Hash" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%日 %H:%M:%S")" >> $GITHUB_ENV
         echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
         echo "start=$(date +%s)" >> $GITHUB_ENV
 
@@ -803,13 +782,6 @@ jobs:
         sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
         
         sed -i 's/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=6.1/g' target/linux/x86/Makefile
-
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh61 == 'true' && github.event.inputs.ssh61  != 'false') || contains(github.event.action, 'ssh61')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Output compilation information
       run: |
