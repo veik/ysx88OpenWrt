@@ -84,7 +84,7 @@ jobs:
         echo "date=$Date" >> $GITHUB_ENV
         echo "commit=$Commit" >> $GITHUB_ENV
         echo "hash=$Hash" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y年%m月%日 %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%d日 %H:%M:%S")" >> $GITHUB_ENV
         echo "TAG=$(date "+%Y%m%d")" >> $GITHUB_ENV
         echo "start=$(date +%s)" >> $GITHUB_ENV
 
