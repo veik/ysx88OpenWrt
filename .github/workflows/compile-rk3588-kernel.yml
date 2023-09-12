@@ -1,9 +1,3 @@
-#==========================================================================
-# Description: Compile rk3588 kernel
-# Copyright (C) 2023 https://github.com/unifreq/linux-5.10.y-rk35xx
-# Copyright (C) 2023 https://github.com/ophub/kernel
-#==========================================================================
-
 name: 编译rk3588内核
 
 on:
