@@ -2,7 +2,7 @@
 
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.1.3/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.71.3/g' package/base-files/files/bin/config_generate
 
 # Themes 主题
 rm -rf feeds/luci/themes/luci-theme-argon
