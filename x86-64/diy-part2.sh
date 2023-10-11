@@ -2,7 +2,7 @@
 
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.71.3/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Themes 主题
 rm -rf feeds/luci/themes/luci-theme-argon
@@ -14,30 +14,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git packag
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 ##更改主机名
-sed -i "s/hostname='.*'/hostname='TIAmo'/g" package/base-files/files/bin/config_generate
-
-# 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/diy/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+sed -i "s/hostname='.*'/hostname='Precision3260'/g" package/base-files/files/bin/config_generate
 
 # replace banner
 cp -f $GITHUB_WORKSPACE/diy/banner package/base-files/files/etc/banner
-
-# alist
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
-
-mkdir -p files/etc/openclash/core
-
-CLASH_DEV_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz"
-CLASH_TUN_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/premium/clash-linux-amd64-2023.08.17.gz"
-CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-amd64.tar.gz"
-GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
-GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
-
-wget -qO- $CLASH_DEV_URL | tar xOvz > files/etc/openclash/core/clash
-wget -qO- $CLASH_TUN_URL | gunzip -c > files/etc/openclash/core/clash_tun
-wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
-wget -qO- $GEOIP_URL > files/etc/openclash/GeoIP.dat
-wget -qO- $GEOSITE_URL > files/etc/openclash/GeoSite.dat
-
-chmod +x files/etc/openclash/core/clash*
